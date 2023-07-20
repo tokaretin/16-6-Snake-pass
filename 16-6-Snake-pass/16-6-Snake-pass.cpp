@@ -39,8 +39,46 @@ multiplier *= −1;
 
 int main()
 {
-    std::cout << "Hello World!\n";
-    std::cout << "Hello World!\n";
-    std::cout << "Hello World!\n";
+    int const SIZE = 5;
+    int digits[SIZE][SIZE];
+    int number = 0;
+
+
+    for (int row = 0; row < SIZE; row++)       // 0, 1, 2
+    {
+        int colStart, colEnd, colStep;         // 4 4 1 9 9 1
+        int multiplier = 1 - 2 * (row % 2);     // 0, (1 не делится на 2 остаток 1)
+
+        if (multiplier == 1)                // 1, 1
+        {                                   
+            colStart = 0;                   // столбец = 0
+            colEnd = SIZE;                  // последний столбец = 5
+            colStep = 1;                    // шаг равен  = 1
+        }
+        else                            // -1
+        {
+            colStart = SIZE - 1;        // 4
+            colEnd = - 1;               // 
+            colStep = - 1;              //
+        }
+
+        for (int col = colStart; col != colEnd; col += colStep) // col = 0, col != 5; col + 1
+        {
+            digits[row][col] = number++;                        //  0 1 2 3 4 
+                                                                //  9 8 7 6 5
+                                                           //  
+        }
+    }
+
+    // Вывод 
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE ; j++)
+        {
+            std::cout << digits[i][j] << " ";
+        }
+        std::cout << '\n';
+    }
+    return 0;
 }
 
